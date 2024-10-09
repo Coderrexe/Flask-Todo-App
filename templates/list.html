@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>EW Tracker</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="my-4">EW Tracker</h1>
+
+        <!-- Form to add new EW -->
+        <form action="/add" method="POST" class="mb-4">
+            <div class="form-group">
+                <label for="task">Task</label>
+                <input type="text" class="form-control" id="task" name="task" required>
+            </div>
+            <div class="form-group">
+                <label for="subject">Subject</label>
+                <input type="text" class="form-control" id="subject" name="subject" required>
+            </div>
+            <div class="form-group">
+                <label for="beak">Beak</label>
+                <input type="text" class="form-control" id="beak" name="beak" required>
+            </div>
+            <div class="form-group">
+                <label for="due_date">Due Date</label>
+                <input type="date" class="form-control" id="due_date" name="due_date" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Add EW</button>
+        </form>
+
+        <!-- Table to display EWs -->
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Task</th>
+                    <th>Subject</th>
+                    <th>Beak</th>
+                    <th>Due Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for ew in ews %}
+                <tr>
+                    <td>{{ ew[1] }}</td>
+                    <td>{{ ew[2] }}</td>
+                    <td>{{ ew[3] }}</td>
+                    <td>{{ ew[4] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
